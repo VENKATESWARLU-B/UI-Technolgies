@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="..//node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            var products =[
+                {Name:"Samsung Tv",Price:30000.10, Photo:"../images/tv1.jpg"},
+                {Name:"Nike Shoes",Price:3000.99, Photo:"../images/shoe.jpg"},
+                {Name:"LG Mobile",Price:15000.45, Photo:"../images/mobile.jpg"},
+                {Name:"Lee Cooper",Price:4500.33, Photo:"../images/shoe1.jpg"},
+            ];
+            function GetProduct(index) {
+                document.getElementById("lblName").innerHTML=
+                products[index].Name;
+                document.getElementById("imgPic").src=
+                products[index].Photo;
+                document.getElementById("lblDetails").innerHTML=
+                "&#8377;" + products[index].Price;
+            }
+            function bodyload() {
+                GetProduct(0);
+            }
+            var i=0;
+            function NextClick() {
+                i++;
+                GetProduct(i);
+            }
+            function PreviousClick() {
+                i--;
+                GetProduct(i);
+            }
+        </script>
+    </head>
+    <body onload="bodyload()" class="text-center">
+            <div class="container">
+            <h2>Amazon Shopping Cart
+            </h2>
+            <div class="text-center">
+                <div class="card">
+                    <div style="color: white" class="card-header bg-primary">
+                        <h2 id="lblName" class="card-title">
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-primary btn-lg" onclick="PreviousClick()"> < </button>
+                        <img src="" id="imgPic" class="img-thumbnail" height="400" width="400">
+                        <button class="btn btn-primary btn-lg" onclick="NextClick()"> > </button>
+                    </div>
+                    <div style="color:white" class="card-footer bg-secondary">
+                        <h3 id="lblDetails"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

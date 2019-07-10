@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function f1(){
+                var product={
+                    Id:1,
+                    Name:"Samsung TV",
+                    Price:45000.55,
+                    Quantity:2,
+                    IsInStock:false,
+                    ShippedTo:["Delhi","Hyd"],
+                    Total:function(){
+                        return product.Quantity*product.Price;
+                    },
+                    print:function(){
+                        document.write("Id="+product.Id+"<br>"+"Name="+product.Name+"<br>"+"Price="+product.Price+"<br>"+"Quantity="+product.Quantity+"<br>"+"IsinStock="+((product.IsInStock==true)?"Available":"Out Of Stock")+"<br>" +"Shipped To="+product.ShippedTo.toString()+"<br>"+"Total Amount="+product.Total());
+                    }
+                };
+                product.print();
+            }
+            f1();
+        </script>
+    </head>
+</html>

@@ -1,0 +1,10 @@
+<script>
+    function bodyload(){
+        var x=document.getElementsByName("pay");
+        alert("Payment Method="+x.length);
+    }
+</script>
+<body onload="bodyload">
+    <input type="radio" name="pay">Credit Card
+    <input type="radio" name="pay">UPI Transfer
+</body>

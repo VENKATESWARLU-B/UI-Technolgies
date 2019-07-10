@@ -1,0 +1,21 @@
+<head>
+        <script>
+            function bodyload(){
+              document.getElementById("pic").src="../images/sicon.jpg";
+              document.getElementById("btnSubmit").value="Submit"
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <div>
+            <img name="pic" id="pic" width="200" height="200" border="1">
+        </div>
+        <div>
+            <form name="frmHome">
+                Name:
+                    <input type="text" name="uname">
+                    <input type="button" name="btnSubmit" id="btnSubmit">
+            </form>
+        </div>
+    </body>
+    

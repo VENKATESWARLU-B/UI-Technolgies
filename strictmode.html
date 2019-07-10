@@ -1,0 +1,20 @@
+<head>
+    <script>
+        function bodyload(){
+            window.document.images[0].src="../images/tv.jpg";
+            window.document.forms[0].elements[1].value="submit";
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img name="pic" id="pic" width="200" height="200" border="1">
+    </div>
+    <div>
+        <form name="frm Home">
+            Name:
+                <input type="text" name="uname">
+                <input type="button" name="btnSubmit" id="btnSubmit">
+        </form>
+    </div>
+</body>
