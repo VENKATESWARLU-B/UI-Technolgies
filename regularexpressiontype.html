@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            function verifyPassword(){
+                var txtPwd=document.getElementById("txtPwd").value;
+                var regEx=/(?=.*[A-Z])\w{4,15}/;
+                var msg=document.getElementById("msg");
+                var grade=document.getElementById("grade");
+                function showGrade(min,max,value,low,high){
+                    grade.min=min;
+                    grade.max=max;
+                    grade.value=value;
+                    grade.low=low;
+                    grade.high=high;
+                }
+                if(txtPwd.match(regEx)){
+                    msg.style.color="Green";
+                    msg.innerHTML="Strong Password";
+                    showGrade(1,100,100,0,0);
+                }else{
+                    if(txtPwd.length<4){
+                        msg.style.color="red";
+                        msg.innerHTML="Poor Password";
+                        showGrade(1,100,100,60,80);
+                    }else{
+                        msg.style.color="Yellow";
+                        msg.innerHTML="Week Password";
+                        showGrade(1,100,100,40,80);
+                    }
+                }
+            }
+            function verifyMobile(){
+                var Mobile=document.getElementById("txtMobile").value;
+                var regEx=/\+91[0-9]{10}/;
+                var msgMobile=document.getElementById("msgMobile");
+                if(Mobile.match(regEx)){
+                    msgMobile.innerHTML="Mobile Verified";
+                }else{
+                    msgMobile.innerHTML="Invalid Mobile";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-group">
+                <h2>Your Passwod</h2>
+                <input onkeyup="verifyPassword()" placeholder="4to15 chars with atleast one uppercase letter" id="txtPwd" type="password" class="form-control">
+                <meter id="grade"></meter>
+                <span id="msg"></span>
+            </div>
+            <div class="form-group">
+                <h2>Verify Mobile Number</h2>
+                <input onkeyup="verifyMobile()" placeholder="eg:+91 9999485852[10]" type="text" id="txtMobile" class="form-control">
+                <span id="msgMobile"></span>
+            </div>
+        </div>
+    </body>
+</html>
