@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+            <style>
+                img{
+                    height: 100px;
+                    widows: 100px;
+                    border: 2px
+                }
+            </style>
+        <script>
+           function bodyload(){
+               var now=new Date();
+               var hrs=now.getHours();
+               var Pic=document.getElementById("Pic");
+               var msg=document.getElementById("msg");
+               var Weekdays=["Sun","Mon","Tue","Wed","Thu","Friday","Sat"];
+               var months=["Jan","Feb","Mar","Apr","May","June","July"];
+               msg.innerHTML=now.getDate()+""+Weekdays[now.getDay()]+","+months[now.getMonth()]+","+now.getFullYear();
+               if(hrs>=5 &&hrs<12){
+                   Pic.src="E:\siva\images\morning.gif";
+               }else if(hrs>=12 && hrs<=18){
+                   Pic.src="E:\siva\images/afternoon.gif";
+               }else if(hrs>18 && hrs<=23){
+                   Pic.src="../Images/evening.gif"
+               }
+           } 
+        </script>
+    </head>
+    <body class="text-center" onclick="bodyload()">
+        <div class="container form-family ">
+            <div id="msg" class="form-group btn btn-success">
+
+            </div>
+            <br>
+            <br>
+
+            <img id="Pic" class="img-thumbnail">
+        </div>
+    </body>
+</html>
