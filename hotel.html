@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            tr{
+                background-color:slategrey;     
+                color:white;
+                font-size: x-large;
+                text-align: center;
+                border-color: wheat;
+            }
+            #feeDetails{
+                width: 300px;
+                height: 450px;
+                margin: auto;
+                display: none;
+            }
+        </style>
+        <script>
+            function ShowSummary()
+            {
+                var advance=document.getElementById("txtAmount").value;
+                if(advance!="")
+                {
+                document.getElementById("tblDetails").style.display="none";
+                document.getElementById("feeDetails").style.display="block";
+                var name=document.getElementById("txtName").value;
+                var date=document.getElementById("txtDate").value;
+                var days=document.getElementById("txtDays").value;
+                var person=document.getElementById("txtPerson").value;
+                var rname = "";
+                var ename = "";
+                var rcost = 0;
+                var ecost = 0;
+                var total = 0;
+                var optDeluxe=document.getElementById("optDeluxe");
+                var optSuite=document.getElementById("optSuite");
+                var optLocker=document.getElementById("optLocker");
+                var optAc=document.getElementById("optAc");
+
+                if(optDeluxe.checked){
+                    rname = optDeluxe.value;
+                    rcost = 2500;
+                }
+                if(optSuite.checked){
+                    rname = optSuite.value;
+                    rcost = 4000;
+                }
+                if(optLocker.checked){
+                   ename += optLocker.value +"<br>";
+                   ecost = 500;
+                   rcost = rcost+ecost;
+                }
+                if(optAc.checked){
+                   ename += optAc.value +"<br>";
+                   ecost = 1000;
+                   rcost = rcost+ecost;
+                }
+
+                if (person<=2){
+                    rcost=days*rcost;
+                }else
+                if (person>2){
+                    rcost=(((person-2)*500)*days)+(rcost*days);
+                }
+               
+                total=rcost;
+                total=rcost-advance;
+                document.getElementById("lblName").innerHTML="Hello!"+ name;
+                document.getElementById("lblDate").innerHTML= date;
+                document.getElementById("lblDays").innerHTML=days;
+                document.getElementById("lblPerson").innerHTML=person;
+                document.getElementById("lblRoom").innerHTML= rname;
+                document.getElementById("lblLock").innerHTML= ename;
+                document.getElementById("lblAdvance").innerHTML=advance;
+                document.getElementById("lblTotal").innerHTML= "Total:"+"&#8377;" + total +"/-";
+                }
+                else{
+                   alert("plese enter Advance Amount")
+                }
+            }
+            function okClick()
+            {
+                document.getElementById("tblDetails").style.display="block";
+                document.getElementById("feeDetails").style.display="none";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+           <table id="tblDetails" align="center" width="800" cellspacing="5" cellpadding="5" border="1">
+                <tr>
+                    <td colspan="2">
+                            <img src="../images/hotel2.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><h2><u>Hotel Reservation Form</u></h2></td>
+                </tr>
+                <tr>
+                    <td>Customer Name:</td>
+                    <td><input id="txtName" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Check In Date:</td>
+                    <td><input id="txtDate" type="date" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Number Of Days:</td>
+                    <td><input id="txtDays" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Number Of persons:</td>
+                    <td><input id="txtPerson" type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Room Type</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="../images/deluxe.jpg">
+                        <br>
+                        <input id="optDeluxe" value="Deluxe Room" type="radio" name="Room">Deluxe Room(&#8377; 2500/-)
+                    </td>
+                    <td>
+                        <img src="../images/suite.jpg">
+                        <br>
+                        <input id="optSuite" value="Suite Room" type="radio" name="Room">Suite Room(&#8377; 4000/-)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Eminities</td>
+                </tr>
+                    <td>
+                        <img src="../images/locker.jpeg">
+                        <br>
+                        <input id="optLocker" value="Locker" type="checkbox" >Locker(&#8377; 500/-)
+                    </td>
+                    <td>
+                        <img src="../images/ac.jpg">
+                        <br>
+                        <input id="optAc" value="Air Conditioner" type="checkbox" >Air Conditioner(&#8377;1000/-)
+                    </td>
+                <tr>
+                <tr>
+                    <td><h3>Advance Amount:</h3></td>
+                    <td>
+                        <form>
+                            <input id="txtAmount" type="number" class="form-control" required>(&#8377;Fixed=3000/-)
+                        </form>        
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="ShowSummary()" class="btn btn-success">Book Now</button>
+                    </td>
+                </tr>
+           </table>
+
+           <div id="feeDetails" class="card">
+                <div class="card-header">
+                   <h3 id="lblName"></h3>
+                </div>
+                <div style="height: 450px" class="card-body">
+                    <dl>
+                        <dt>Check In Date:</dt>
+                        <dd id="lblDate"></dd>
+                        <dt>Number Of Days:</dt>
+                        <dd id="lblDays"></dd>
+                        <dt>Number Of persons:</dt>
+                        <dd id="lblPerson"></dd>
+                        <dt>Room Type:</dt>
+                        <dd id="lblRoom"></dd>
+                        <dt>Eminities:</dt>
+                        <dd id="lblLock"></dd>
+                        <dt>Advance Amount:</dt>
+                        <dd id="lblAdvance"></dd>
+                    </dl>
+                    <br>
+                   <div>
+                        <button onclick="okClick()">OK</button>
+                   </div>
+                </div>
+                <div class="card-footer">
+                    <h3 id="lblTotal"></h3>
+                </div>    
+           </div>
+        </div>
+    </body>
+</html>
