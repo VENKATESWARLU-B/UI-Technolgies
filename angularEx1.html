@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                width: 1000px;
+            }
+            #imgbody{
+                width: 300px;
+                height: 350px;
+                
+            }
+            .column {
+                    float:inline-start;
+                    width:max-content;
+                    padding: 5px;
+                    }
+
+                    /* Clearfix (clear floats) */
+                    .row::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                    }
+        </style>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+    </head>
+    <body ng-app>
+        <div class="container">
+            <h2>Products Catalog</h2>
+            <div >
+                Search Product:
+                <input class="form-control" type="text" ng-model="search" style="width:200px">
+            </div>
+            <br> <br>
+            <div ng-init="Products=[{Name:'Samsung TV',Price:45000.25,Photo:'../Images/tv.jpg'},
+                                    {Name:'Nike Shoe',Price:4500.54, Photo:'../Images/shoe.jpg'},
+                                    {Name:'lee Shoe',Price:3599.50, Photo:'../Images/shoe1.jpg'},
+                                    {Name:'loo Shoe',Price:4000.50, Photo:'../Images/c1.jpg'},
+                                    {Name:'Reebok Classic CLUB C 85 Shoe',Price:3533.54, Photo:'../Images/c4.jpg'},
+                                    {Name:'Nike Air Max Shoe',Price:9999.50, Photo:'../Images/c3.jpg'},
+                                    {Name:'Nike TIGER Shoe',Price:12999.99, Photo:'../Images/c2.jpg'},
+                                    {Name:'LG Mobile',Price:15999.99, Photo:'../Images/mobile.jpg'},
+                                    {Name:'Apple X Mobile',Price:90999.00, Photo:'../Images/x.jpg'},
+                                    {Name:'Apple XI Mobile',Price:100500.00, Photo:'../Images/xi.jpg'},
+                                    {Name:'Apple 7S Mobile',Price:85500.00, Photo:'../Images/7s.jpg'},
+                                    {Name:'Sony XZ Mobile',Price:35999.00, Photo:'../Images/xz.jpg'},
+                                    {Name:'Sony XA1 Mobile',Price:29999.00, Photo:'../Images/xa1.jpg'},
+                                    {Name:'Vivo V15 Mobile',Price:35000.00, Photo:'../Images/v15.jpg'},
+                                    {Name:'Moto G7 Mobile',Price:19999.00, Photo:'../Images/g7.jpg'},
+                                    {Name:'Vivo S1 Mobile',Price:45999.00, Photo:'../Images/s1.jpg'},
+                                    {Name:'SAMSUNG M20 Mobile',Price:24999.00, Photo:'../Images/m20.jpg'},
+                                    {Name:'SAMSUNG 9S Mobile',Price:17999.00, Photo:'../Images/9s.jpg'},
+                                    {Name:'SAMSUNG A60 Mobile',Price:49000.00, Photo:'../Images/a60.jpg'},
+                                    {Name:'SAMSUNG 313 Mobile',Price:1999.00, Photo:'../Images/313.jpg'},
+                                    {Name:'OPPO K1 Mobile',Price:25000.00, Photo:'../Images/k1.jpg'},
+                                    {Name:'OPPO F11 Mobile',Price:19999.00, Photo:'../Images/f11.jpg'},
+                                    {Name:'Redmi K20 Mobile',Price:18999.00, Photo:'../Images/k20.jpg'},
+                                    {Name:'NOKIA 6.1 Mobile',Price:21500.00, Photo:'../Images/6.1.jpg'},
+                                    {Name:'NOKIA 6.2 Mobile',Price:26000.00, Photo:'../Images/6.2.jpg'},
+                                                                ]">
+
+                <div class="card-deck column ">
+                    <div class="card col-md-6 " ng-repeat="item in Products | filter:search ">
+                        <div class="card-header">
+                            <h3 width=100%>{{item.Name}}</h3>
+                        </div>
+                        <div class="card-body" id="imgbody">
+
+                            <img src="{{item.Photo}}" width="100%" >
+                        </div>
+                        <div class="card-footer">
+                            <h3>&#8377;{{item.Price}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+       <style>
+           #table-2{
+                background-image: url("../images/panel2.jpg");
+
+            }
+            #table-1{
+                background-image: url("../images/panel1.jpg");
+                text-align: center;
+                color: white;
+            
+            }
+            #imgbody{
+                width: 300px;
+                height: 350px;
+                
+            }
+            .column {
+                    float:none;
+                    width:max-content;
+                    padding: 5px;
+                    }
+        </style>
+       
+    </head>
+    <body ng-app>
+        <form>
+            <div class="container">
+                <table width="1000px">
+                    <tr>
+                        <td colspan="2" width="1000px">
+                            <img src="../images/cart.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--Table-1 .....panel-1-->
+                            <td>
+                                <table id="table-1" width="250px" height="800px" border="0" >
+                                    <tr>
+                                        <td height="150px">
+                                            <div>
+                                                <label ><h3>Select Catagories</h3></label>
+                                                <div align="center">
+                                                    <select ng-model="txtCatagiry" name="txtCatagiry" class="form-control" style="text-align: center; width:200px; box-align: center">
+                                                        <optgroup label="Electronics">
+                                                            <option>TV</option>
+                                                            <option>Mobile</option>
+                                                        </optgroup>
+                                                        <option>Shoes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="150px">
+                                            <div >
+                                                <label><h3>Price</h3></label>
+                                                <div >
+                                                    <input ng-model="txtPrice" type="range"  min="100" max="50000" value="0" step="1"  style="width: 200px">
+                                                </div>
+                                                <div> <span class="left">100</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="right">100000</span></div> 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="150">
+                                            <label>Search</label>
+                                            <div align="center" >
+                                                <input  type="text" class="form-control " style="width: 200px;" ng-model="search">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <!--Table-2 .....panel-2-->
+                                <table id="table-2" width="750px" height="800px" border="0" >
+                                    <tr>
+                                        <td>
+                                        <div ng-init="Products=[{Name:'Samsung TV',Price:45000.25,Photo:'../Images/tv1.jpg'},
+                                            {Name:'Nike Shoes',Price:4500.54, Photo:'../Images/shoe.jpg'},
+                                            {Name:'lee Shoes',Price:3599.50, Photo:'../Images/shoe1.jpg'},
+                                            {Name:'loo Shoes',Price:4000.50, Photo:'../Images/c1.jpg'},
+                                            {Name:'Adidas Casual Shoes',Price:7000.45, Photo:'../Images/c5.jpg'},
+                                            {Name:'Adidas Casual Shoes',Price:6599.99, Photo:'../Images/c6.jpg'},
+                                            {Name:'Reebok Classic CLUB C 85 Shoes',Price:3533.54, Photo:'../Images/c4.jpg'},
+                                            {Name:'Nike Air Max Shoes',Price:9999.50, Photo:'../Images/c3.jpg'},
+                                            {Name:'Nike TIGER Shoes',Price:12999.99, Photo:'../Images/c2.jpg'},
+                                            {Name:'LG Mobile',Price:15999.99, Photo:'../Images/mobile.jpg'},
+                                            {Name:'Apple X Mobile',Price:90999.00, Photo:'../Images/x.jpg'},
+                                            {Name:'Apple XI Mobile',Price:100500.00, Photo:'../Images/xi.jpg'},
+                                            {Name:'Apple 7S Mobile',Price:85500.00, Photo:'../Images/7s.jpg'},
+                                            {Name:'Sony XZ Mobile',Price:35999.00, Photo:'../Images/xz.jpg'},
+                                            {Name:'Sony XA1 Mobile',Price:29999.00, Photo:'../Images/xa1.jpg'},
+                                            {Name:'Vivo V15 Mobile',Price:35000.00, Photo:'../Images/v15.jpg'},
+                                            {Name:'Moto G7 Mobile',Price:19999.00, Photo:'../Images/g7.jpg'},
+                                            {Name:'Vivo S1 Mobile',Price:45999.00, Photo:'../Images/s1.jpg'},
+                                            {Name:'SAMSUNG M20 Mobile',Price:24999.00, Photo:'../Images/m20.jpg'},
+                                            {Name:'SAMSUNG 9S Mobile',Price:17999.00, Photo:'../Images/9s.jpg'},
+                                            {Name:'SAMSUNG A60 Mobile',Price:49000.00, Photo:'../Images/a60.jpg'},
+                                            {Name:'SAMSUNG 313 Mobile',Price:1999.00, Photo:'../Images/313.jpg'},
+                                            {Name:'OPPO K1 Mobile',Price:25000.00, Photo:'../Images/k1.jpg'},
+                                            {Name:'OPPO F11 Mobile',Price:19999.00, Photo:'../Images/f11.jpg'},
+                                            {Name:'Redmi K20 Mobile',Price:18999.00, Photo:'../Images/k20.jpg'},
+                                            {Name:'NOKIA 6.1 Mobile',Price:21500.00, Photo:'../Images/6.1.jpg'},
+                                            {Name:'NOKIA 6.2 Mobile',Price:26000.00, Photo:'../Images/6.2.jpg'},
+                                            ]"
+                                                <div class="card-deck column">
+                                                    <div class="card" ng-repeat="item in Products | filter:search |filter:txtCatagiry |filter:Price.txtPrice">
+                                                        <div class="card-header">
+                                                            <h3>{{item.Name}}</h3>
+                                                        </div>
+                                                        <div class="card-body" id="imgbody">
+                                                            <img src="{{item.Photo}}" class="img-thumbnail img-fluid">
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <h3>&#8377;{{item.Price}}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </body>
+</html>
