@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS forms</title>
+        <style>
+            body{
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs5slReVaINmaN37l5gmr1vhfU7wE7cb0dl3xQZdksje6ygsnp");
+                font-family: Arial, Helvetica, sans-serif;
+                background-size: cover;
+            }
+            .form-div h2{
+                color: lightslategrey;
+            }
+            .form-div{
+                background-image: url("https://66.media.tumblr.com/7fad7c39cc3595bf371007280b56d759/tumblr_ol8w9vArmX1w302mmo1_400.gifv");
+                background-size:cover;
+                border: 2px solid grey;
+                width: 250px;
+                border-radius: 15px;
+                text-align: center;
+                box-shadow: 0 0 15px;
+            }
+            input[type='text'],input[type='password']{
+                margin: 5px;
+                height: 35px;
+                text-align: center;
+                border: 1px solid blue;
+                border-radius: 15px;
+                font-size: 18px;
+                width: 200px;
+            }
+            input[type='text']:focus,input[type='password']:focus {
+                    background-color: lightblue;
+                    outline: none;
+                }
+            input[type='submit']{
+                text-align: center;
+                border: none;
+                background-color: forestgreen;
+                color: white;
+                padding: 10 35;
+                
+                border-radius: 50px;
+                font-size: 18px;
+                margin: 5px 0 16px 0;
+            }
+            input[type='submit']:hover {
+                background-color: tomato;
+                opacity: 0.8;
+                cursor: pointer;
+                box-shadow: 0 0 15px lightseagreen  ;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-div">
+            <h2>Login form</h2>
+            <form>
+                <input type="text" placeholder="User Name"><br>
+                <input type="password" placeholder="Password"><br>
+                <input type="submit" name="Login">
+            </form>
+        </div>
+    </body>
+</html>
