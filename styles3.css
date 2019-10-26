@@ -1,0 +1,47 @@
+body{
+    margin: 50px;
+}
+.circle-1{
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg,black,white);
+    border-radius: 50%;
+    border-top: 30px solid red;
+    border-bottom: 30px solid green;
+    border-left :20px solid blue;
+   border-right: 20px solid yellow;
+   box-shadow: 0 0 10px black;
+   animation: rotate-clock 2s infinite linear;
+}
+@keyframes rotate-clock{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+div{
+    display: inline-block;
+    margin: 25px;
+}
+.circle-2{
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg,black,white);
+    border-radius: 50%;
+    border-top: 30px solid red;
+    border-bottom: 30px solid green;
+    border-left :20px solid blue;
+   border-right: 20px solid yellow;
+   box-shadow: 0 0 10px black;
+   animation: rotate-anticlock 2s infinite linear;
+}
+@keyframes rotate-anticlock{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

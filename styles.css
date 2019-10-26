@@ -1,0 +1,55 @@
+ul{
+    margin-top: 100px;
+    margin-left: 100px;
+}
+ul li{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: black;
+    border-radius: 50%;
+    margin: 30px;
+    border: 2px solid white;
+    animation: glow 2s infinite linear;
+}
+@keyframes glow{
+    0%,50%, 75%,100%{
+        transform: scale(0.3,0.3);
+    }
+    25%{
+        transform: scale(5,5);
+    }
+}
+ul li:nth-child(1)  {
+    animation-delay: 0.1s;
+    background-color: blue;
+    box-shadow: 0 0 30px blue;
+
+}
+ul li:nth-child(2)  {
+    animation-delay: 0.2s;
+    background-color: red;
+    box-shadow: 0 0 30px red;
+    
+}
+ul li:nth-child(3)  {
+    animation-delay: 0.3s;
+    background-color: green;
+    box-shadow: 0 0 30px green;
+}
+ul li:nth-child(4)  {
+    animation-delay: 0.4s;
+    background-color: purple;
+    box-shadow: 0 0 30px purple;
+}
+ul li:nth-child(5)  {
+    animation-delay: 0.5s;
+    background-color: yellow;
+    box-shadow: 0 0 30px yellow;
+}
+ul li:nth-child(6)  {
+    animation-delay: 0.6s;
+    background-color: orange;
+    box-shadow: 0 0 30px orange;
+}
+
